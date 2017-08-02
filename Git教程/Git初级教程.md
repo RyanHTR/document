@@ -54,7 +54,7 @@ git commit -m “本地提交的log”
 git push origin master:master
 ```
 **只有被add进暂存区的文件，commit时才会被提交到本地仓库，如果没有add，即使该本文件发生了改变了，commit时也会被忽略**
-- 状态查看
+### 状态查看
 
 ```shell
 # 查看文件状态，可以看到哪些文件发生了改变
