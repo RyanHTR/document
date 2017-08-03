@@ -4,7 +4,7 @@
 # 1.安装
 ## 1.1 安装步骤
 ## 1.2 可能遇到的坑
-
+***
 deeplab_v2编译提示
 ```
 error: function “atomicAdd(double *, double)” has already been defined
@@ -37,7 +37,7 @@ static __inline__ __device__ double atomicAdd(double *address, double val) {
   #endif
 #endif
 ```
-
+***
 deeplab_v2编译提示
 ```
 src/caffe/layers/window_data_layer.cpp:26:11: error: ‘const int CV_LOAD_IMAGE_COLOR’ redeclared as different kind of symbol
@@ -51,5 +51,20 @@ const int CV_LOAD_IMAGE_COLOR = cv::IMREAD_COLOR;
 #endif
 ```
 注释掉即可
+***
+编译提示
+```
+undefined reference to `cv::imread(cv::String const&, int)'
+```
+解决办法：
+在Makefile里找到
+```
+opencv_core opencv_highgui opencv_imgproc\
+```
+一行，并改为
+```
+opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs\
+```
+***
 
 # 2.使用
