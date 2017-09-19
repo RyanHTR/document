@@ -76,3 +76,28 @@ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
 
 需要注意cudnn并不向前兼容，所以在更新cudnn时需要将以前安装的.h和.so文件删除后再执行以上安装操作。
+
+
+# 5.OpenCV安装
+## 5.1下载安装包
+在http://opencv.org/releases.html 中下载安装包并解压。推荐使用3.1版本，强烈不建议3.0（有BUG)。下面以3.1版本为例进行介绍。
+## 5.2安装所需依赖
+```
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+```
+## 5.3创建编译的临时目录
+```
+cd ~/opencv
+mkdir build
+cd build
+```
+## 5.4生成cmake编译配置并进行编译
+```
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..
+make -j4  
+```
+## 5.5进行安装
+```
+sudo make install
+```
