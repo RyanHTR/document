@@ -49,7 +49,7 @@ git add readme.txt readme2.txt
 git add .
 # 然后将暂存区的文件提交到本地仓库
 git commit -m “本地提交的log”
-# 讲本地仓库的改动push到远程仓库
+# 将本地仓库的改动push到远程仓库
 # git push <远程主机名> <本地分支名>:<远程分支名>
 git push origin master:master
 ```
